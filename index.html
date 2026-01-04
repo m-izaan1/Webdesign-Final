@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expedition 33 - A turn-based RPG adventure through the frozen world of Atlas. Experience strategic combat and an epic story.">
+    <title>Expedition 33 - Home</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand me-auto" href="index.html">
+            <img src="Images/Logo.jpeg" alt="Expedition 33 Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+          <div class="navbar-nav flex-grow-1 justify-content-evenly">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="overview.html">Overview</a>
+            <a class="nav-link" href="characters.html">Character</a>
+            <a class="nav-link" href="gallery.html">Gallery</a>
+            <a class="nav-link" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CSS-ONLY CAROUSEL (Radio Button Navigation - No JavaScript) -->
+    <div class="carousel-container">
+        <!-- Hidden radio buttons for slide control -->
+        <input type="radio" name="slides" id="slide1" checked>
+        <input type="radio" name="slides" id="slide2">
+        <input type="radio" name="slides" id="slide3">
+        
+        <!-- Slides -->
+        <div class="carousel-slides">
+            <div class="carousel-slide" id="s1">
+                <img src="Images/Slider-1.jpeg" alt="Expedition 33 Frozen World">
+                <div class="carousel-caption">
+                    <h5>Welcome to Atlas</h5>
+                    <p>A frozen world awaits your exploration</p>
+                </div>
+            </div>
+            <div class="carousel-slide" id="s2">
+                <img src="Images/Slider-2.jpg" alt="Strategic Combat">
+                <div class="carousel-caption">
+                    <h5>Strategic Turn-Based Combat</h5>
+                    <p>Plan your moves wisely against powerful foes</p>
+                </div>
+            </div>
+            <div class="carousel-slide" id="s3">
+                <img src="Images/Slider-3.jpg" alt="Epic Adventure">
+                <div class="carousel-caption">
+                    <h5>An Epic Journey</h5>
+                    <p>Uncover the mystery of the 33-year curse</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows (Functional) -->
+        <div class="carousel-nav">
+            <label class="nav-arrow nav-prev" for="slide3"></label>
+            <label class="nav-arrow nav-prev" for="slide1"></label>
+            <label class="nav-arrow nav-prev" for="slide2"></label>
+            <label class="nav-arrow nav-next" for="slide2"></label>
+            <label class="nav-arrow nav-next" for="slide3"></label>
+            <label class="nav-arrow nav-next" for="slide1"></label>
+        </div>
+        
+        <!-- Dot Indicators (Functional) -->
+        <div class="carousel-dots">
+            <label class="dot" for="slide1"></label>
+            <label class="dot" for="slide2"></label>
+            <label class="dot" for="slide3"></label>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="content-container">
+        <div id="main-content" class="row">
+            
+            <!-- Combat Info -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="Para">
+                    <h4 style="color: #6c9bd1; margin-bottom: 15px;">
+                        <i class="fas fa-chess"></i> Turn-Based Combat
+                    </h4>
+                    <p>
+                        The combat in Expedition 33 is turn-based, which means you and your enemies take turns to act. You can choose what to do — attack, defend, or use special skills. Each move needs strategy, because your choices decide how the fight goes. Strong enemies may need careful planning instead of fast reactions. Winning battles gives you experience to make your team stronger and unlock new abilities.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Trailer -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="Trailer">
+                    <iframe 
+                        src="https://www.youtube.com/embed/9baCqcVrNCc?si=gwO6YDLF1n4Xn3Tg" 
+                        title="Expedition 33 Official Trailer" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                    <p style="margin-top: 15px; color: #888;">Watch the Official Trailer</p>
+                </div>
+            </div>
+
+            <!-- Story Info -->
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="Para">
+                    <h4 style="color: #6c9bd1; margin-bottom: 15px;">
+                        <i class="fas fa-book-open"></i> The Story
+                    </h4>
+                    <p>
+                        The story follows a group of explorers traveling across a frozen world called Atlas. Every 33 years, a mysterious curse returns and brings great danger to humanity. The members of Expedition 33 set out to find the truth behind this curse and stop it forever. Along the way, they face harsh lands, strange creatures, and emotional choices that test their courage and hope.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>&copy; 2026 Expedition 33 Fan Site</p>
+                    <h5>Muhammad Izaan Ul Haque</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

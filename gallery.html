@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expedition 33 Gallery - Explore stunning screenshots, artwork, and videos from the frozen world of Atlas.">
+    <title>Expedition 33 - Gallery</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand me-auto" href="index.html">
+            <img src="Images/Logo.jpeg" alt="Expedition 33 Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+          <div class="navbar-nav flex-grow-1 justify-content-evenly">
+            <a class="nav-link active" href="index.html">Home</a>
+            <a class="nav-link" href="overview.html">Overview</a>
+            <a class="nav-link" href="characters.html">Character</a>
+            <a class="nav-link" aria-current="page" href="gallery.html">Gallery</a>
+            <a class="nav-link" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1><i class="fas fa-images"></i> Gallery</h1>
+        <p>Screenshots, artwork, and videos from the world of Atlas</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="content-container">
+        
+        <!-- CSS-ONLY CAROUSEL (Radio Button Navigation - No JavaScript) -->
+        <h2 class="section-title"><i class="fas fa-camera"></i> Featured Screenshots</h2>
+        <div class="carousel-container gallery-carousel">
+            <!-- Hidden radio buttons for slide control -->
+            <input type="radio" name="gallery-slides" id="gslide1" checked>
+            <input type="radio" name="gallery-slides" id="gslide2">
+            <input type="radio" name="gallery-slides" id="gslide3">
+            <input type="radio" name="gallery-slides" id="gslide4">
+            
+            <!-- Slides -->
+            <div class="carousel-slides">
+                <div class="carousel-slide" id="gs1">
+                    <img src="Images/Gallery Slider - 1.jpg" alt="Frozen Landscape">
+                    <div class="carousel-caption">
+                        <h5>The Frozen Wastes</h5>
+                        <p>Endless ice stretches across the continent of Atlas</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" id="gs2">
+                    <img src="Images/Gallery Slider - 2.jpg" alt="Ancient Ruins">
+                    <div class="carousel-caption">
+                        <h5>Ancient Ruins</h5>
+                        <p>Remnants of civilizations lost to the curse</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" id="gs3">
+                    <img src="Images/Gallery Slider - 3.jpg" alt="Epic Battle">
+                    <div class="carousel-caption">
+                        <h5>Epic Battles</h5>
+                        <p>Face fearsome enemies in strategic combat</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" id="gs4">
+                    <img src="Images/Gallery Slider - 4.jpg" alt="Team Journey">
+                    <div class="carousel-caption">
+                        <h5>The Journey</h5>
+                        <p>Together, Expedition 33 faces the unknown</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <div class="carousel-nav">
+                <label class="nav-arrow nav-prev" for="gslide4"></label>
+                <label class="nav-arrow nav-prev" for="gslide1"></label>
+                <label class="nav-arrow nav-prev" for="gslide2"></label>
+                <label class="nav-arrow nav-prev" for="gslide3"></label>
+                <label class="nav-arrow nav-next" for="gslide2"></label>
+                <label class="nav-arrow nav-next" for="gslide3"></label>
+                <label class="nav-arrow nav-next" for="gslide4"></label>
+                <label class="nav-arrow nav-next" for="gslide1"></label>
+            </div>
+            
+            <!-- Dot Indicators -->
+            <div class="carousel-dots">
+                <label class="dot" for="gslide1"></label>
+                <label class="dot" for="gslide2"></label>
+                <label class="dot" for="gslide3"></label>
+                <label class="dot" for="gslide4"></label>
+            </div>
+        </div>
+
+        <!-- THUMBNAIL GALLERY -->
+        <h2 class="section-title" style="margin-top: 50px;"><i class="fas fa-th"></i> Screenshot Gallery</h2>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <img src="Images/Gallery - 1.jpg" class="gallery-thumb" alt="Screenshot 1">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <img src="Images/Gallery - 2.jpg" class="gallery-thumb" alt="Screenshot 2">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <img src="Images/Gallery - 3.jpg" class="gallery-thumb" alt="Screenshot 3">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <img src="Images/Gallery - 4.jpg" class="gallery-thumb" alt="Screenshot 4">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <img src="Images/Gallery - 5.jpg" class="gallery-thumb" alt="Screenshot 5">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <img src="Images/Gallery - 6.jpg" class="gallery-thumb" alt="Screenshot 6">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <img src="Images/Gallery - 7.jpg" class="gallery-thumb" alt="Screenshot 7">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <img src="Images/Gallery - 8.jpg" class="gallery-thumb" alt="Screenshot 8">
+            </div>
+        </div>
+
+        <!-- VIDEO SECTION -->
+        <h2 class="section-title" style="margin-top: 50px;"><i class="fas fa-video"></i> Videos</h2>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="Para">
+                    <h4 style="color: #6c9bd1; margin-bottom: 20px;">
+                        <i class="fas fa-play-circle"></i> Official Trailer
+                    </h4>
+                    <div class="Trailer">
+                        <iframe 
+                            src="https://www.youtube.com/embed/9baCqcVrNCc?si=gwO6YDLF1n4Xn3Tg" 
+                            title="Expedition 33 Official Trailer" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="Para">
+                    <h4 style="color: #6c9bd1; margin-bottom: 20px;">
+                        <i class="fas fa-gamepad"></i> Gameplay Preview
+                    </h4>
+                    <div class="Trailer">
+                        <iframe 
+                            src="https://www.youtube.com/embed/geHCJLKGu6k?si=gI5MUmPMFc8MgN5M" 
+                            title="Expedition 33 Gameplay" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>&copy; 2026 Expedition 33 Fan Site</p>
+                    <h5>Muhammad Izaan Ul Haque</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,631 @@
+/* ==========================================
+   EXPEDITION 33 - SHARED STYLES
+   ========================================== */
+
+/* Reset & Base */
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(Images/Exp-33-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    font-family: 'Cinzel', serif;
+    color: #e0e0e0;
+}
+
+/* ==========================================
+   NAVBAR STYLES
+   ========================================== */
+.navbar {
+    background-image: url(Images/navbar.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10px 20px;
+    min-height: 100px; /* Changed from fixed height to min-height to allow expansion */
+}
+
+.navbar-brand img {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+
+.navbar-nav {
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #fff !important;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+    margin: 0 1rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #fff !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28200, 200, 200, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* ==========================================
+   CSS-ONLY CAROUSEL (Radio Button Based)
+   ========================================== */
+.carousel-container {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    position: relative;
+    height: 450px;
+    background: #0a0a0a;
+}
+
+/* Hide radio buttons */
+.carousel-container input[type="radio"] {
+    display: none;
+}
+
+/* Slides container */
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Individual slides */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Caption styling */
+.carousel-caption {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 15px 35px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.carousel-caption h5 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin: 0 0 5px 0;
+}
+
+.carousel-caption p {
+    font-size: 0.95rem;
+    color: #c0c0c0;
+    margin: 0;
+}
+
+/* Show active slide based on checked radio */
+#slide1:checked ~ .carousel-slides #s1,
+#slide2:checked ~ .carousel-slides #s2,
+#slide3:checked ~ .carousel-slides #s3 {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Navigation arrows container */
+.carousel-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Hide all arrows by default */
+.nav-arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+}
+
+.nav-prev::before {
+    transform: translate(-30%, -50%) rotate(-135deg);
+}
+
+.nav-next::before {
+    transform: translate(-70%, -50%) rotate(45deg);
+}
+
+.nav-arrow:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-prev { left: 20px; }
+.nav-next { right: 20px; }
+
+/* Show correct arrows based on current slide */
+#slide1:checked ~ .carousel-nav .nav-prev[for="slide3"],
+#slide2:checked ~ .carousel-nav .nav-prev[for="slide1"],
+#slide3:checked ~ .carousel-nav .nav-prev[for="slide2"] {
+    display: block;
+}
+
+#slide1:checked ~ .carousel-nav .nav-next[for="slide2"],
+#slide2:checked ~ .carousel-nav .nav-next[for="slide3"],
+#slide3:checked ~ .carousel-nav .nav-next[for="slide1"] {
+    display: block;
+}
+
+/* Dot indicators */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.2);
+}
+
+/* Active dot indicator */
+#slide1:checked ~ .carousel-dots .dot[for="slide1"],
+#slide2:checked ~ .carousel-dots .dot[for="slide2"],
+#slide3:checked ~ .carousel-dots .dot[for="slide3"] {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+
+/* ==========================================
+   GALLERY CAROUSEL (4 Slides)
+   ========================================== */
+/* Show active slide */
+#gslide1:checked ~ .carousel-slides #gs1,
+#gslide2:checked ~ .carousel-slides #gs2,
+#gslide3:checked ~ .carousel-slides #gs3,
+#gslide4:checked ~ .carousel-slides #gs4 {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Gallery navigation arrows */
+#gslide1:checked ~ .carousel-nav .nav-prev[for="gslide4"],
+#gslide2:checked ~ .carousel-nav .nav-prev[for="gslide1"],
+#gslide3:checked ~ .carousel-nav .nav-prev[for="gslide2"],
+#gslide4:checked ~ .carousel-nav .nav-prev[for="gslide3"] {
+    display: block;
+}
+
+#gslide1:checked ~ .carousel-nav .nav-next[for="gslide2"],
+#gslide2:checked ~ .carousel-nav .nav-next[for="gslide3"],
+#gslide3:checked ~ .carousel-nav .nav-next[for="gslide4"],
+#gslide4:checked ~ .carousel-nav .nav-next[for="gslide1"] {
+    display: block;
+}
+
+/* Gallery active dot indicator */
+#gslide1:checked ~ .carousel-dots .dot[for="gslide1"],
+#gslide2:checked ~ .carousel-dots .dot[for="gslide2"],
+#gslide3:checked ~ .carousel-dots .dot[for="gslide3"],
+#gslide4:checked ~ .carousel-dots .dot[for="gslide4"] {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+
+/* ==========================================
+   MAIN CONTENT CONTAINER
+   ========================================== */
+#content-container {
+    padding: 40px 5%;
+}
+
+#main-content {
+    overflow: hidden;
+    color: whitesmoke;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   PARAGRAPH BOXES (Info Panels)
+   ========================================== */
+.Para {
+    background-color: rgba(0, 0, 0, 0.65);
+    border: 2px solid rgba(100, 100, 100, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.Para p {
+    padding: 0;
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   VIDEO TRAILER
+   ========================================== */
+.Trailer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Trailer iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   CARDS (Characters, Features)
+   ========================================== */
+.card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    filter: brightness(0.9);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #c0c0c0;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   TABLES (Character Stats)
+   ========================================== */
+.table-dark {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.table-dark thead th {
+    background-color: rgba(50, 50, 50, 0.8);
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #555;
+}
+
+.table-dark td,
+.table-dark th {
+    border-color: rgba(100, 100, 100, 0.3);
+    padding: 15px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(40, 40, 40, 0.5);
+}
+
+/* ==========================================
+   FORMS (Contact)
+   ========================================== */
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group label {
+    font-family: 'Cinzel', serif;
+    color: #e0e0e0;
+    margin-bottom: 8px;
+}
+
+/* Fix for browser autofill white background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px rgba(30, 30, 30, 0.95) inset !important;
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-control {
+    background-color: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(100, 100, 100, 0.4);
+    color: #fff;
+    padding: 15px 15px; /* Increased padding top/bottom */
+    height: auto; /* Allow auto height based on padding */
+    min-height: 50px; /* Ensure minimum height */
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    background-color: rgba(40, 40, 40, 0.95);
+    border-color: #6c9bd1;
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(108, 155, 209, 0.25);
+}
+
+.form-control::placeholder {
+    color: #888;
+}
+
+select.form-control {
+    height: 55px; /* Specific height for dropdowns */
+}
+
+.btn-primary {
+    background-color: #4a7cb5;
+    border: none;
+    padding: 12px 30px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #5a8cc5;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   PAGE HEADERS
+   ========================================== */
+.page-header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: #000;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 10px rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #000;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+/* ==========================================
+   SECTION TITLES
+   ========================================== */
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: #000;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #000;
+    box-shadow: 0 2px 0 0 #fff, 0 1px 0 0 rgba(255, 255, 255, 0.5);
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================
+   GALLERY THUMBNAILS
+   ========================================== */
+.gallery-thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.gallery-thumb:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+#footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #aaa;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(100, 100, 100, 0.3);
+}
+
+#footer h5 {
+    font-size: 1rem;
+    margin: 5px 0;
+    font-weight: 400;
+}
+
+#footer a {
+    color: #6c9bd1;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #8cb5e0;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   SOCIAL LINKS
+   ========================================== */
+.social-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    background-color: rgba(50, 50, 50, 0.8);
+    border-radius: 50%;
+    margin: 0 8px;
+    color: #c0c0c0;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #4a7cb5;
+    color: #fff;
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+@media (max-width: 992px) {
+    .navbar-brand img {
+        width: 140px;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 1.1rem;
+    }
+    
+    .carousel-container {
+        height: 300px;
+    }
+    
+    .carousel-caption h5 {
+        font-size: 1rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.85rem;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card-img-top {
+        height: 160px;
+    }
+    
+    .form-container {
+        padding: 25px;
+        margin: 0 15px;
+    }
+    
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Adjust navbar links for mobile */
+    .navbar-nav .nav-link {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
