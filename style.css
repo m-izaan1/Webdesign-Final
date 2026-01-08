@@ -68,224 +68,19 @@ body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28200, 200, 200, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-
-/* ==========================================
-   CSS-ONLY CAROUSEL (Radio Button Based)
-   ========================================== */
-.carousel-container {
-    margin: 30px auto;
-    width: 90%;
-    max-width: 1200px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    position: relative;
-    height: 450px;
-    background: #0a0a0a;
-}
-
-/* Hide radio buttons */
-.carousel-container input[type="radio"] {
+/*CSS Navbar Toggle */
+.nav-toggle {
     display: none;
 }
 
-/* Slides container */
-.carousel-slides {
-    position: relative;
-    width: 100%;
-    height: 100%;
+/* Show collapse content when checkbox is checked */
+#nav-toggle:checked ~ .navbar .navbar-collapse {
+    display: block !important;
 }
 
-/* Individual slides */
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-}
-
-/* Caption styling */
-.carousel-caption {
-    position: absolute;
-    bottom: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);
-    padding: 15px 35px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.carousel-caption h5 {
-    font-family: 'Cinzel', serif;
-    font-size: 1.3rem;
-    color: #fff;
-    margin: 0 0 5px 0;
-}
-
-.carousel-caption p {
-    font-size: 0.95rem;
-    color: #c0c0c0;
-    margin: 0;
-}
-
-/* Show active slide based on checked radio */
-#slide1:checked ~ .carousel-slides #s1,
-#slide2:checked ~ .carousel-slides #s2,
-#slide3:checked ~ .carousel-slides #s3 {
-    opacity: 1;
-    z-index: 1;
-}
-
-/* Navigation arrows container */
-.carousel-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    pointer-events: none;
-}
-
-/* Hide all arrows by default */
-.nav-arrow {
-    display: none;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
+/* Style for the label acting as toggler */
+label.navbar-toggler {
     cursor: pointer;
-    pointer-events: auto;
-    transition: all 0.3s ease;
-}
-
-.nav-arrow::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    border-top: 3px solid #fff;
-    border-right: 3px solid #fff;
-}
-
-.nav-prev::before {
-    transform: translate(-30%, -50%) rotate(-135deg);
-}
-
-.nav-next::before {
-    transform: translate(-70%, -50%) rotate(45deg);
-}
-
-.nav-arrow:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.nav-prev { left: 20px; }
-.nav-next { right: 20px; }
-
-/* Show correct arrows based on current slide */
-#slide1:checked ~ .carousel-nav .nav-prev[for="slide3"],
-#slide2:checked ~ .carousel-nav .nav-prev[for="slide1"],
-#slide3:checked ~ .carousel-nav .nav-prev[for="slide2"] {
-    display: block;
-}
-
-#slide1:checked ~ .carousel-nav .nav-next[for="slide2"],
-#slide2:checked ~ .carousel-nav .nav-next[for="slide3"],
-#slide3:checked ~ .carousel-nav .nav-next[for="slide1"] {
-    display: block;
-}
-
-/* Dot indicators */
-.carousel-dots {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 10;
-}
-
-.dot {
-    width: 14px;
-    height: 14px;
-    background: rgba(255, 255, 255, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot:hover {
-    background: rgba(255, 255, 255, 0.7);
-    transform: scale(1.2);
-}
-
-/* Active dot indicator */
-#slide1:checked ~ .carousel-dots .dot[for="slide1"],
-#slide2:checked ~ .carousel-dots .dot[for="slide2"],
-#slide3:checked ~ .carousel-dots .dot[for="slide3"] {
-    background: #fff;
-    transform: scale(1.2);
-}
-
-
-/* ==========================================
-   GALLERY CAROUSEL (4 Slides)
-   ========================================== */
-/* Show active slide */
-#gslide1:checked ~ .carousel-slides #gs1,
-#gslide2:checked ~ .carousel-slides #gs2,
-#gslide3:checked ~ .carousel-slides #gs3,
-#gslide4:checked ~ .carousel-slides #gs4 {
-    opacity: 1;
-    z-index: 1;
-}
-
-/* Gallery navigation arrows */
-#gslide1:checked ~ .carousel-nav .nav-prev[for="gslide4"],
-#gslide2:checked ~ .carousel-nav .nav-prev[for="gslide1"],
-#gslide3:checked ~ .carousel-nav .nav-prev[for="gslide2"],
-#gslide4:checked ~ .carousel-nav .nav-prev[for="gslide3"] {
-    display: block;
-}
-
-#gslide1:checked ~ .carousel-nav .nav-next[for="gslide2"],
-#gslide2:checked ~ .carousel-nav .nav-next[for="gslide3"],
-#gslide3:checked ~ .carousel-nav .nav-next[for="gslide4"],
-#gslide4:checked ~ .carousel-nav .nav-next[for="gslide1"] {
-    display: block;
-}
-
-/* Gallery active dot indicator */
-#gslide1:checked ~ .carousel-dots .dot[for="gslide1"],
-#gslide2:checked ~ .carousel-dots .dot[for="gslide2"],
-#gslide3:checked ~ .carousel-dots .dot[for="gslide3"],
-#gslide4:checked ~ .carousel-dots .dot[for="gslide4"] {
-    background: #fff;
-    transform: scale(1.2);
 }
 
 
@@ -375,6 +170,35 @@ body {
     color: #c0c0c0;
     line-height: 1.6;
 }
+
+
+/* ==========================================
+   CHARACTER BADGES
+   ========================================== */
+.badge {
+    display: inline-block;
+    padding: 0.5em 0.8em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    margin-right: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.badge-primary { background-color: #007bff; }
+.badge-secondary { background-color: #6c757d; }
+.badge-success { background-color: #28a745; }
+.badge-info { background-color: #17a2b8; }
+.badge-warning { background-color: #ffc107; color: #212529; }
+.badge-danger { background-color: #dc3545; }
+.badge-dark { background-color: #343a40; }
+.badge-brown { background-color: #8B4513; }
 
 /* ==========================================
    TABLES (Character Stats)
@@ -582,6 +406,82 @@ select.form-control {
 }
 
 /* ==========================================
+   Carousel Styling (Bootstrap Refinements)
+   ========================================== */
+.carousel-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    border-radius: 20px; /* Slightly more rounded */
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Deeper shadow */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+/* Fix image height and fit */
+.carousel-item {
+    background: #000; /* Dark background for letterboxing */
+}
+
+.carousel-item img {
+    height: 450px; /* Reduced specific height */
+    object-fit: contain; /* Show full image, don't zoom/crop */
+    object-position: center;
+    width: 100%;
+}
+
+/* Modern Glassmorphism Caption */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.4); /* Transparent dark */
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 30px;
+    bottom: 40px; /* Lift up slightly */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    /* Center and constrain width */
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 60%;
+    max-width: 600px;
+}
+
+.carousel-caption h5 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Polished Indicators */
+.carousel-indicators [data-bs-target] {
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: all 0.3s ease;
+    width: 25px;
+    margin: 0 4px;
+}
+
+.carousel-indicators .active {
+    background-color: #fff;
+    width: 35px; /* Expand active indicator */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Hover Zoom Effect on Images */
+.carousel-inner .carousel-item img {
+    transition: transform 0.6s ease;
+}
+
+.carousel-container:hover .carousel-inner .carousel-item img {
+    transform: scale(1.03); /* Subtle zoom on hover */
+}
+
+/* ==========================================
    RESPONSIVE ADJUSTMENTS
    ========================================== */
 @media (max-width: 992px) {
@@ -591,18 +491,6 @@ select.form-control {
     
     .navbar-nav .nav-link {
         font-size: 1.1rem;
-    }
-    
-    .carousel-container {
-        height: 300px;
-    }
-    
-    .carousel-caption h5 {
-        font-size: 1rem;
-    }
-    
-    .carousel-caption p {
-        font-size: 0.85rem;
     }
     
     .page-header h1 {
@@ -617,15 +505,18 @@ select.form-control {
         padding: 25px;
         margin: 0 15px;
     }
-    
-    .nav-arrow {
-        width: 40px;
-        height: 40px;
-    }
 
     /* Adjust navbar links for mobile */
+    .navbar-nav {
+        align-items: flex-end;   /* Align items to the right */
+        padding-right: 15px;     /* Add some spacing from the edge */
+        padding-left: 0;
+        width: 100%;             /* Ensure full width for alignment */
+    }
+
     .navbar-nav .nav-link {
         margin: 10px 0;
-        text-align: center;
+        text-align: right;       /* Right align text */
+        width: 100%;             /* Full width for click area */
     }
 }
